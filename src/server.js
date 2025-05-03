@@ -1,5 +1,5 @@
 const express = require("express");
-const postRoutes = require("./routes/post.js");
+const commentsRoutes = require("./routes/comment.js");
 const db = require("./db");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -8,7 +8,7 @@ const { swaggerDocs } = require("./utils/swagger");
 if (process.env.NODE_ENV !== "Production") {
   dotenv.config();
 }
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 8002;
 const app = express();
 
 app.use(express.json());
@@ -27,7 +27,7 @@ app.use(
   })
 );
 
-app.use("/v1", postRoutes);
+app.use("/v1", commentsRoutes);
 
 // app.listen(PORT, () => {
 //   console.log(`Server is running on port ${PORT}`);
