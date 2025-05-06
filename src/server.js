@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: [
+    origin: process.env.ORIGIN?.split(",") || [
       "http://localhost:3000",
       "http://localhost:8000",
       "http://192.168.0.162:3000",
